@@ -1,4 +1,4 @@
-# MyApp
+# DevicesList
 
 npm install - команда, устанавливающая пакеты
 
