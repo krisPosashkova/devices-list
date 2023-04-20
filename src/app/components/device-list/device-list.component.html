@@ -1,0 +1,30 @@
+<div>
+  <h1 class="title">Device list</h1>
+  <button 
+    class="button" 
+    (click)="logout()">
+    Log Out
+  </button>
+  <div 
+    class="error" 
+    *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+
+  <table *ngIf="!errorMessage">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last active</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let device of devices">
+        <td>{{device.id}}</td>
+        <td>{{device.name}}</td>
+        <td>{{ device.lastActiveDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

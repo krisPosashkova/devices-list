@@ -1,0 +1,52 @@
+<div class="content">
+  <h1 class="title">Авторизация</h1>
+  <form 
+    class="form" 
+    [formGroup]="loginForm" 
+    (ngSubmit)="onSubmit()">
+    <div class="form__input-wrapper">
+      <input 
+        class="form__input" 
+        type="email" 
+        formControlName="email" 
+        placeholder="Email" 
+        required>
+      <div 
+        class="error" 
+        *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors">
+        <div 
+          class="error__message" 
+          *ngIf="loginForm.get('email')?.errors?.['required']">
+          Поле обязательно для заполнения
+        </div>
+      </div>      
+    </div>
+    <div class="form__input-wrapper">
+      <input 
+        class="form__input" 
+        type="password" 
+        formControlName="password" 
+        placeholder="Password" 
+        required>
+      <div 
+        class="error" 
+        *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors">
+        <div 
+          class="error__message" 
+          *ngIf="loginForm.get('password')?.errors?.['required']">
+          Поле обязательно для заполнения
+        </div>
+      </div> 
+    </div>
+    <div 
+      class="error" 
+      *ngIf="errorMessage">
+      {{errorMessage}}
+    </div>
+    <button 
+      class="form__submit" 
+      type="submit">
+      Войти
+    </button>
+  </form>
+</div>
